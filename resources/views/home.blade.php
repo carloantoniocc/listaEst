@@ -16,6 +16,13 @@
 
                     You are logged in!
                 </div>
+
+                <ul>
+                        <li>
+                            <a href="{{ URL::to('establecimientos') }}"> Establecimientos </a>
+                        </li>                    
+                </ul>    
+
             </div>
         </div>
     </div>
