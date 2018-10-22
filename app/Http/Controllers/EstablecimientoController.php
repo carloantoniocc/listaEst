@@ -14,7 +14,8 @@ class EstablecimientoController extends Controller
      */
     public function index()
     {
-        dd('aca');
+        $establecimientos = Establecimiento::paginate();
+        return view('establecimientos.index',compact('establecimientos'));
     }
 
     /**
@@ -24,7 +25,7 @@ class EstablecimientoController extends Controller
      */
     public function create()
     {
-        //
+       return view('establecimientos.create');
     }
 
     /**
@@ -35,7 +36,12 @@ class EstablecimientoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $establecimiento = new Establecimiento;
+        $establecimiento->name = $request->input('name');
+        $establecimiento->active = $request->input('active');
+        $establecimiento->save();
+
+        return redirect('/establecimientos')->with('message','store'); 
     }
 
     /**
@@ -57,7 +63,7 @@ class EstablecimientoController extends Controller
      */
     public function edit(Establecimiento $establecimiento)
     {
-        //
+        return view('establecimientos.edit',compact('establecimiento'));
     }
 
     /**
@@ -69,7 +75,11 @@ class EstablecimientoController extends Controller
      */
     public function update(Request $request, Establecimiento $establecimiento)
     {
-        //
+        $establecimiento->name = $request->input('name');
+        $establecimiento->active = $request->input('active');
+        $establecimiento->save();
+
+        return redirect('/establecimientos')->with('message','update'); 
     }
 
     /**

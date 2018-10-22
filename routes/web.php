@@ -38,4 +38,4 @@ Route::get('email/resend', 'Auth\VerificationController@resend')->name('verifica
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/establecimientos', 'EstablecimientoController@index');
+Route::resource('/establecimientos', 'EstablecimientoController');

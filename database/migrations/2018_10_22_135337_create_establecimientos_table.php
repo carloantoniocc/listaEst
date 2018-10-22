@@ -15,6 +15,8 @@ class CreateEstablecimientosTable extends Migration
     {
         Schema::create('establecimientos', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
+            $table->boolean('active');
             $table->timestamps();
         });
     }
